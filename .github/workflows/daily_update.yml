@@ -1,0 +1,32 @@
+name: Daily Portfolio Content Updater
+
+on:
+  schedule:
+    - cron: '30 17 * * *' # Har raat 11:00 PM IST par auto update hoga
+  workflow_dispatch:
+
+jobs:
+  update-portfolio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Run Auto-Update Script
+        run: python update_portfolio.py
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]"
+          git add index.html
+          git commit -m "chore: auto-refresh dynamic tech feed [skip ci]" || exit 0
+          git push
