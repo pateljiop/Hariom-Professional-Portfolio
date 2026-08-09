@@ -4,118 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Google Search Optimization Tags -->
-    <title>pateljiop | Hariom Patel - Python Developer & Automation Enthusiast</title>
-    <meta name="title" content="pateljiop | Hariom Patel - Python Developer & Automation Enthusiast">
-    <meta name="description" content="Official developer portfolio of pateljiop (Hariom Patel). Final-year BCA student, Python Developer, and Automation Enthusiast in Prayagraj, UP.">
+    <!-- SEO & Search Optimization Tags -->
+    <title>pateljiop | Hariom Patel - Python Developer & Automation Specialist</title>
+    <meta name="title" content="pateljiop | Hariom Patel - Python Developer & Automation Specialist">
+    <meta name="description" content="Official developer portfolio of pateljiop (Hariom Patel). Final-year BCA student, Python Developer, and Automation Specialist in Prayagraj, UP.">
     <meta name="keywords" content="pateljiop, patelji_op, hariompatel.dev, Hariom Patel, Hariom Patel Prayagraj, Hariom Patel Portfolio">
     <meta name="author" content="Hariom Patel (pateljiop)">
-    
+    <link rel="canonical" href="https://pateljiop.github.io/Hariom-Professional-Portfolio/">
+
     <!-- CSS & Fonts -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Link copied to clipboard! 🚀</div>
 
     <header>
         <nav>
             <a href="#" class="logo">pateljiop<span>.dev</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#code">Terminal</a></li>
+                <li><a href="#setup">Workspace</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#updates">Live Updates</a></li>
+                <li><a href="#updates">Live Feed</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
+        <!-- Hero Banner Section -->
         <section class="hero fade-in" id="about">
-            <span class="badge">Final-Year BCA Student</span>
-            <h1>Hi, I'm <span class="highlight">Hariom Patel</span></h1>
-            <p>Aspiring Software Developer specializing in Python, Web Technologies, Automated Scripts, and AI Workflows. Focused on writing practical code and building useful digital tools.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            <div class="hero-banner-card">
+                <div class="hero-text-content">
+                    <span class="badge">Final-Year BCA Student</span>
+                    <h1 class="hero-title">HARIOM PATEL</h1>
+                    <p class="hero-subtitle">I build <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></p>
+                    <p class="hero-meta">📍 Prayagraj, Uttar Pradesh • Prof. Rajendra Singh University</p>
+                    <p class="hero-stack">Python • Web Automation • Data Analysis • REST APIs</p>
+                    
+                    <!-- Quick Social Icon Buttons -->
+                    <div class="social-btn-group">
+                        <a href="https://github.com/pateljiop" target="_blank" class="social-btn" title="GitHub">💻 GitHub</a>
+                        <a href="https://linkedin.com/in/pateljiop" target="_blank" class="social-btn" title="LinkedIn">🔗 LinkedIn</a>
+                        <a href="https://instagram.com/patelji_op" target="_blank" class="social-btn insta-btn" title="Instagram">📸 Instagram</a>
+                        <a href="https://t.me/patelji_op" target="_blank" class="social-btn tg-btn" title="Telegram">✈️ Telegram</a>
+                    </div>
+
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                        <button onclick="copyPortfolioLink()" class="btn btn-secondary">⚡ Share Link</button>
+                    </div>
+                </div>
+                <div class="hero-graphic-container">
+                    <img src="assets/avatar.jpg" alt="Hariom Patel" class="banner-avatar" onerror="this.src='https://github.com/pateljiop.png'">
+                </div>
             </div>
         </section>
 
-        <!-- Dynamic Daily Updates Section (Auto-Updated via GitHub Actions) -->
+        <!-- Interactive Terminal Window -->
+        <section id="code" class="fade-in">
+            <h2 class="section-title">👨‍💻 About Me in Code</h2>
+            <p class="section-subtitle">Real-time developer status represented in Python syntax.</p>
+            <div class="code-editor-card">
+                <div class="editor-header">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="editor-title">developer_profile.py</span>
+                </div>
+                <pre class="editor-body"><code><span class="py-keyword">class</span> <span class="py-class">Developer</span>:
+    <span class="py-keyword">def</span> <span class="py-func">__init__</span>(self):
+        self.name = <span class="py-str">"Hariom Patel"</span>
+        self.handles = {
+            <span class="py-str">"github"</span>: <span class="py-str">"pateljiop"</span>,
+            <span class="py-str">"instagram"</span>: <span class="py-str">"patelji_op"</span>,
+            <span class="py-str">"telegram"</span>: <span class="py-str">"patelji_op"</span>
+        }
+        self.location = <span class="py-str">"Prayagraj, UP"</span>
+
+me = Developer()
+print(<span class="py-str">"Building practical solutions daily..."</span>)</code></pre>
+            </div>
+        </section>
+
+        <!-- Interactive Image Slider (Workspace) -->
+        <section id="setup" class="fade-in">
+            <h2 class="section-title">🖥️ Workspace & Setup Gallery</h2>
+            <p class="section-subtitle">A glimpse into my multi-monitor coding environment.</p>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="assets/setup1.jpg" alt="Developer Workstation Setup 1" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800'">
+                        <div class="slide-caption">Multi-Monitor Coding & Automation Environment</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Live Feed Section -->
         <section id="updates" class="fade-in">
             <h2 class="section-title">⚡ Live Daily Developer Feed</h2>
-            <p class="section-subtitle">Automatically updated every 24 hours via GitHub Actions & Python pipelines.</p>
+            <p class="section-subtitle">Automatically updated every 24 hours via GitHub Actions.</p>
             <div class="card live-card">
                 <div class="live-status"><span class="pulse"></span> Dynamic Content Feed</div>
                 <div id="daily-feed-content">
-                    <!-- Python Script Will Inject Fresh Content Here Automatically -->
                     <h3>🚀 Today's Tech Focus</h3>
                     <p>Fetching latest technology headlines and daily programming logs...</p>
                 </div>
             </div>
         </section>
 
-        <!-- Technical Skills -->
+        <!-- Skills Section -->
         <section id="skills" class="fade-in">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title">Technical Stack</h2>
             <div class="skills-container">
-                <span class="skill-pill">Python</span>
-                <span class="skill-pill">JavaScript (Basics)</span>
-                <span class="skill-pill">HTML5 & CSS3</span>
-                <span class="skill-pill">Pandas & NumPy</span>
-                <span class="skill-pill">OOPs Concepts</span>
-                <span class="skill-pill">Web Scraping</span>
-                <span class="skill-pill">Git & GitHub</span>
-                <span class="skill-pill">AI APIs & Workflows</span>
-                <span class="skill-pill">VS Code</span>
-                <span class="skill-pill">MS Excel</span>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"> JavaScript</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"> HTML5</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"> CSS3</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"> Pandas</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"> NumPy</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git & GitHub</div>
+                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode"> VS Code</div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Grid Section -->
         <section id="projects" class="fade-in">
             <h2 class="section-title">Featured Projects</h2>
             <div class="grid">
                 <div class="card">
+                    <div class="card-icon">🤖</div>
                     <h3>AI-Powered Personal Assistant</h3>
                     <p>Script-driven assistant automating routine tasks and system commands using prompt logic and AI API integrations.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">AI APIs</span>
-                        <span class="tag">Automation</span>
                     </div>
                     <a href="https://github.com/pateljiop/AI-Personal-Assistant" target="_blank" class="btn btn-secondary">Source Code</a>
                 </div>
 
                 <div class="card">
+                    <div class="card-icon">🕸️</div>
                     <h3>Web Scraper & Utility Tools</h3>
                     <p>Automated Python scripts extracting public web data and organizing it cleanly into CSV/JSON formats for structured analysis.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">File Systems</span>
                         <span class="tag">Scraping</span>
                     </div>
                     <a href="https://github.com/pateljiop/Web-Scraper-Tool" target="_blank" class="btn btn-secondary">Source Code</a>
                 </div>
 
                 <div class="card">
+                    <div class="card-icon">📈</div>
                     <h3>Automated Market Tracker</h3>
                     <p>Real-time market tracking tool running via CI/CD workflows to fetch market prices and update dashboards daily.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">GitHub Actions</span>
-                        <span class="tag">REST API</span>
                     </div>
                     <a href="https://github.com/pateljiop/live-market-tracker" target="_blank" class="btn btn-secondary">Source Code</a>
                 </div>
 
                 <div class="card">
+                    <div class="card-icon">💻</div>
                     <h3>Personal Developer Portfolio</h3>
                     <p>Responsive portfolio showcasing academic credentials, skills, and self-updating live tech feeds.</p>
                     <div class="tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
+                        <span class="tag">HTML5/CSS3</span>
                         <span class="tag">JavaScript</span>
                     </div>
                     <a href="https://github.com/pateljiop/Hariom-Professional-Portfolio" target="_blank" class="btn btn-secondary">Source Code</a>
@@ -131,6 +194,8 @@
                 <p>✉️ <strong>Email:</strong> <a href="mailto:hariompatel.dev@gmail.com">hariompatel.dev@gmail.com</a></p>
                 <p>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pateljiop" target="_blank">linkedin.com/in/pateljiop</a></p>
                 <p>💻 <strong>GitHub:</strong> <a href="https://github.com/pateljiop" target="_blank">github.com/pateljiop</a></p>
+                <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/patelji_op" target="_blank">instagram.com/patelji_op</a></p>
+                <p>✈️ <strong>Telegram:</strong> <a href="https://t.me/patelji_op" target="_blank">t.me/patelji_op</a></p>
             </div>
         </section>
     </main>
