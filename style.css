@@ -411,3 +411,16 @@ footer {
     .nav-links { display: none; }
     .hero-btns { justify-content: center; }
 }
+
+
+/* Project action buttons */
+.project-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-actions .btn {
+    flex: 1;
+    min-width: 120px;
+}
