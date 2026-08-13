@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO & Search Optimization Tags -->
-    <title>pateljiop | Hariom Patel - Python Developer & Automation Specialist</title>
-    <meta name="title" content="pateljiop | Hariom Patel - Python Developer & Automation Specialist">
-    <meta name="description" content="Official developer portfolio of pateljiop (Hariom Patel). Final-year BCA student, Python Developer, and Automation Specialist in Prayagraj, UP.">
-    <meta name="keywords" content="pateljiop, patelji_op, hariompatel.dev, Hariom Patel, Hariom Patel Prayagraj, Hariom Patel Portfolio">
+    <title>pateljiop | Hariom Patel - Python Developer</title>
+    <meta name="title" content="pateljiop | Hariom Patel - Python Developer">
+    <meta name="description" content="Official developer portfolio of pateljiop (Hariom Patel), BCA student and aspiring Python Developer focused on automation, web development, REST APIs and practical software projects.">
+    <meta name="keywords" content="pateljiop, patelji_op, hariompatel.dev, Hariom Patel, Hariom Patel Prayagraj, Hariom Patel Portfolio, Python Developer">
     <meta name="author" content="Hariom Patel (pateljiop)">
     <link rel="canonical" href="https://pateljiop.github.io/Hariom-Professional-Portfolio/">
 
@@ -37,16 +37,27 @@
     </header>
 
     <main class="container">
+
         <!-- Hero Banner Section -->
         <section class="hero fade-in" id="about">
             <div class="hero-banner-card">
                 <div class="hero-text-content">
-                    <span class="badge">Final-Year BCA Student</span>
+                    <span class="badge">BCA Student • Python Developer</span>
+
                     <h1 class="hero-title">HARIOM PATEL</h1>
-                    <p class="hero-subtitle">I build <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></p>
-                    <p class="hero-meta">📍 Prayagraj, Uttar Pradesh • Prof. Rajendra Singh University</p>
-                    <p class="hero-stack">Python • Web Automation • Data Analysis • REST APIs</p>
-                    
+
+                    <p class="hero-subtitle">
+                        I build <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span>
+                    </p>
+
+                    <p class="hero-meta">
+                        📍 Prayagraj, Uttar Pradesh • Prof. Rajendra Singh University
+                    </p>
+
+                    <p class="hero-stack">
+                        Python • Web Development • Automation • REST APIs
+                    </p>
+
                     <!-- Quick Social Icon Buttons -->
                     <div class="social-btn-group">
                         <a href="https://github.com/pateljiop" target="_blank" class="social-btn" title="GitHub">💻 GitHub</a>
@@ -60,8 +71,14 @@
                         <button onclick="copyPortfolioLink()" class="btn btn-secondary">⚡ Share Link</button>
                     </div>
                 </div>
+
                 <div class="hero-graphic-container">
-                    <img src="assets/avatar.jpg" alt="Hariom Patel" class="banner-avatar" onerror="this.src='https://github.com/pateljiop.png'">
+                    <img
+                        src="assets/avatar.jpg"
+                        alt="Hariom Patel"
+                        class="banner-avatar"
+                        onerror="this.src='https://github.com/pateljiop.png'"
+                    >
                 </div>
             </div>
         </section>
@@ -70,6 +87,7 @@
         <section id="code" class="fade-in">
             <h2 class="section-title">👨‍💻 About Me in Code</h2>
             <p class="section-subtitle">Real-time developer status represented in Python syntax.</p>
+
             <div class="code-editor-card">
                 <div class="editor-header">
                     <div class="dots">
@@ -79,9 +97,11 @@
                     </div>
                     <span class="editor-title">developer_profile.py</span>
                 </div>
+
                 <pre class="editor-body"><code><span class="py-keyword">class</span> <span class="py-class">Developer</span>:
     <span class="py-keyword">def</span> <span class="py-func">__init__</span>(self):
         self.name = <span class="py-str">"Hariom Patel"</span>
+        self.role = <span class="py-str">"Python Developer"</span>
         self.handles = {
             <span class="py-str">"github"</span>: <span class="py-str">"pateljiop"</span>,
             <span class="py-str">"instagram"</span>: <span class="py-str">"patelji_op"</span>,
@@ -98,11 +118,18 @@ print(<span class="py-str">"Building practical solutions daily..."</span>)</code
         <section id="setup" class="fade-in">
             <h2 class="section-title">🖥️ Workspace & Setup Gallery</h2>
             <p class="section-subtitle">A glimpse into my multi-monitor coding environment.</p>
+
             <div class="slider-container">
                 <div class="slider">
                     <div class="slide active">
-                        <img src="assets/setup1.jpg" alt="Developer Workstation Setup 1" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800'">
-                        <div class="slide-caption">Multi-Monitor Coding & Automation Environment</div>
+                        <img
+                            src="assets/setup1.jpg"
+                            alt="Developer Workstation Setup 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800'"
+                        >
+                        <div class="slide-caption">
+                            Multi-Monitor Coding & Automation Environment
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,99 +138,306 @@ print(<span class="py-str">"Building practical solutions daily..."</span>)</code
         <!-- Dynamic Live Feed Section -->
         <section id="updates" class="fade-in">
             <h2 class="section-title">⚡ Live Daily Developer Feed</h2>
-            <p class="section-subtitle">Automatically updated every 24 hours via GitHub Actions.</p>
+            <p class="section-subtitle">
+                Automatically updated every 24 hours via GitHub Actions.
+            </p>
+
             <div class="card live-card">
-                <div class="live-status"><span class="pulse"></span> Dynamic Content Feed</div>
+                <div class="live-status">
+                    <span class="pulse"></span> Dynamic Content Feed
+                </div>
+
                 <div id="daily-feed-content">
-<h3>🚀 Daily Tech Feed (August 13, 2026)</h3><ul style='list-style:none; padding:0; margin-top:10px;'><li style='margin-bottom:12px;'><a href='https://dev.to/gde/do-i-still-need-a-monkey-patch-for-gemini-live-4c3e' target='_blank' style='color:#38bdf8; font-weight:600; text-decoration:none;'>Do I Still Need a Monkey Patch for Gemini Live?</a><br><small style='color:#94a3b8;'>No. And deleting 187 lines of it was the single biggest benefit of moving to ADK 2.x — but it was not...</small></li><li style='margin-bottom:12px;'><a href='https://dev.to/the_king89/holehe-alternative-in-2026-modern-osint-email-username-intelligence-with-user-scanner-4m1o' target='_blank' style='color:#38bdf8; font-weight:600; text-decoration:none;'>Holehe Alternative in 2026: Modern OSINT Email & Username Intelligence with user-scanner</a><br><small style='color:#94a3b8;'>When mapping digital footprints, security analysts and open-source intelligence (OSINT) practitioners...</small></li></ul>
-</div>
+                    <h3>🚀 Daily Tech Feed (August 13, 2026)</h3>
+
+                    <ul style='list-style:none; padding:0; margin-top:10px;'>
+                        <li style='margin-bottom:12px;'>
+                            <a
+                                href='https://dev.to/gde/do-i-still-need-a-monkey-patch-for-gemini-live-4c3e'
+                                target='_blank'
+                                style='color:#38bdf8; font-weight:600; text-decoration:none;'
+                            >
+                                Do I Still Need a Monkey Patch for Gemini Live?
+                            </a>
+                            <br>
+                            <small style='color:#94a3b8;'>
+                                No. And deleting 187 lines of it was the single biggest benefit of moving to ADK 2.x — but it was not...
+                            </small>
+                        </li>
+
+                        <li style='margin-bottom:12px;'>
+                            <a
+                                href='https://dev.to/the_king89/holehe-alternative-in-2026-modern-osint-email-username-intelligence-with-user-scanner-4m1o'
+                                target='_blank'
+                                style='color:#38bdf8; font-weight:600; text-decoration:none;'
+                            >
+                                Holehe Alternative in 2026: Modern OSINT Email & Username Intelligence with user-scanner
+                            </a>
+                            <br>
+                            <small style='color:#94a3b8;'>
+                                When mapping digital footprints, security analysts and open-source intelligence (OSINT) practitioners...
+                            </small>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="fade-in">
             <h2 class="section-title">Technical Stack</h2>
+
             <div class="skills-container">
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"> JavaScript</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"> HTML5</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"> CSS3</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"> Pandas</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"> NumPy</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git & GitHub</div>
-                <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode"> VS Code</div>
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    Python
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                    JavaScript
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                    HTML5
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                    CSS3
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                    Pandas
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                    NumPy
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    Git & GitHub
+                </div>
+
+                <div class="skill-pill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                    VS Code
+                </div>
             </div>
         </section>
 
         <!-- Projects Grid Section -->
         <section id="projects" class="fade-in">
             <h2 class="section-title">Featured Projects</h2>
+
             <div class="grid">
+
+                <!-- Expense Tracker -->
+                <div class="card">
+                    <div class="card-icon">💰</div>
+
+                    <h3>Expense Tracker</h3>
+
+                    <p>
+                        Responsive personal finance dashboard for tracking income,
+                        expenses, balances, categories and transaction history.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">LocalStorage</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a
+                            href="https://github.com/pateljiop/Expense-Tracker"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            Source Code
+                        </a>
+
+                        <a
+                            href="https://pateljiop.github.io/Expense-Tracker/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Python Personal Assistant -->
                 <div class="card">
                     <div class="card-icon">🤖</div>
-                    <h3>AI-Powered Personal Assistant</h3>
-                    <p>Script-driven assistant automating routine tasks and system commands using prompt logic and AI API integrations.</p>
+
+                    <h3>Python Personal Assistant</h3>
+
+                    <p>
+                        Python-based command-line assistant for desktop automation,
+                        file operations, browser launching and system utilities.
+                    </p>
+
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">AI APIs</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">CLI</span>
                     </div>
-                    <a href="https://github.com/pateljiop/AI-Personal-Assistant" target="_blank" class="btn btn-secondary">Source Code</a>
+
+                    <a
+                        href="https://github.com/pateljiop/AI-Personal-Assistant"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        Source Code
+                    </a>
                 </div>
 
+                <!-- Web Scraper -->
                 <div class="card">
-                    <div class="card-icon">🕸️</div>
-                    <h3>Web Scraper & Utility Tools</h3>
-                    <p>Automated Python scripts extracting public web data and organizing it cleanly into CSV/JSON formats for structured analysis.</p>
+                    <div class="card-icon">🕷️</div>
+
+                    <h3>Web Scraper & Data Utility Pipeline</h3>
+
+                    <p>
+                        Python scraper that extracts public webpage titles, headings
+                        and links and exports structured CSV and JSON data.
+                    </p>
+
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">Scraping</span>
+                        <span class="tag">Requests</span>
+                        <span class="tag">BeautifulSoup</span>
+                        <span class="tag">CSV/JSON</span>
                     </div>
-                    <a href="https://github.com/pateljiop/Web-Scraper-Tool" target="_blank" class="btn btn-secondary">Source Code</a>
+
+                    <a
+                        href="https://github.com/pateljiop/Web-Scraper-Tool"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        Source Code
+                    </a>
                 </div>
 
+                <!-- Self-Updating Portfolio -->
                 <div class="card">
-                    <div class="card-icon">📈</div>
-                    <h3>Automated Market Tracker</h3>
-                    <p>Real-time market tracking tool running via CI/CD workflows to fetch market prices and update dashboards daily.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">GitHub Actions</span>
-                    </div>
-                    <a href="https://github.com/pateljiop/live-market-tracker" target="_blank" class="btn btn-secondary">Source Code</a>
-                </div>
+                    <div class="card-icon">🌐</div>
 
-                <div class="card">
-                    <div class="card-icon">💻</div>
-                    <h3>Personal Developer Portfolio</h3>
-                    <p>Responsive portfolio showcasing academic credentials, skills, and self-updating live tech feeds.</p>
+                    <h3>Self-Updating Developer Portfolio</h3>
+
+                    <p>
+                        Responsive developer portfolio with custom styling,
+                        interactive sections and an automated Python workflow
+                        for updating developer content and tech feeds.
+                    </p>
+
                     <div class="tags">
                         <span class="tag">HTML5/CSS3</span>
                         <span class="tag">JavaScript</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">GitHub Actions</span>
                     </div>
-                    <a href="https://github.com/pateljiop/Hariom-Professional-Portfolio" target="_blank" class="btn btn-secondary">Source Code</a>
+
+                    <div class="project-actions">
+                        <a
+                            href="https://github.com/pateljiop/Hariom-Professional-Portfolio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            Source Code
+                        </a>
+
+                        <a
+                            href="https://pateljiop.github.io/Hariom-Professional-Portfolio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            Live Demo
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="fade-in">
             <h2 class="section-title">Connect With Me</h2>
+
             <div class="contact-card">
-                <p>📍 <strong>Location:</strong> Prayagraj, Uttar Pradesh, India</p>
-                <p>✉️ <strong>Email:</strong> <a href="mailto:hariompatel.dev@gmail.com">hariompatel.dev@gmail.com</a></p>
-                <p>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pateljiop" target="_blank">linkedin.com/in/pateljiop</a></p>
-                <p>💻 <strong>GitHub:</strong> <a href="https://github.com/pateljiop" target="_blank">github.com/pateljiop</a></p>
-                <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/patelji_op" target="_blank">instagram.com/patelji_op</a></p>
-                <p>✈️ <strong>Telegram:</strong> <a href="https://t.me/patelji_op" target="_blank">t.me/patelji_op</a></p>
+                <p>
+                    📍 <strong>Location:</strong>
+                    Prayagraj, Uttar Pradesh, India
+                </p>
+
+                <p>
+                    ✉️ <strong>Email:</strong>
+                    <a href="mailto:hariompatel.dev@gmail.com">
+                        hariompatel.dev@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    🔗 <strong>LinkedIn:</strong>
+                    <a href="https://linkedin.com/in/pateljiop" target="_blank">
+                        linkedin.com/in/pateljiop
+                    </a>
+                </p>
+
+                <p>
+                    💻 <strong>GitHub:</strong>
+                    <a href="https://github.com/pateljiop" target="_blank">
+                        github.com/pateljiop
+                    </a>
+                </p>
+
+                <p>
+                    📸 <strong>Instagram:</strong>
+                    <a href="https://instagram.com/patelji_op" target="_blank">
+                        instagram.com/patelji_op
+                    </a>
+                </p>
+
+                <p>
+                    ✈️ <strong>Telegram:</strong>
+                    <a href="https://t.me/patelji_op" target="_blank">
+                        t.me/patelji_op
+                    </a>
+                </p>
             </div>
         </section>
+
     </main>
 
     <footer>
         <p>&copy; 2026 Hariom Patel (pateljiop). Built with clean web standards.</p>
-        <p class="share-tag">⭐ Open Source Project: <a href="https://github.com/pateljiop/Hariom-Professional-Portfolio" target="_blank">Fork this automated template on GitHub</a></p>
+
+        <p class="share-tag">
+            ⭐ Open Source Project:
+            <a
+                href="https://github.com/pateljiop/Hariom-Professional-Portfolio"
+                target="_blank"
+            >
+                Fork this automated template on GitHub
+            </a>
+        </p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
+    
