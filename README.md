@@ -1,6 +1,13 @@
-# 🌐 Hariom Patel - Personal Developer Portfolio
+<div align="center">
+  <img src="https://raw.githubusercontent.com/pateljiop/pateljiop/main/08_Banner_Cover.png" width="100%" alt="Hariom Builds — Code, Create, Automate" />
+  <p><strong>Hariom Builds</strong> · Code • Create • Automate</p>
+</div>
 
-Welcome to my personal developer portfolio repository! This website showcases my background, technical projects, skills, and academic journey as a final-year Bachelor of Computer Applications (BCA) student.
+---
+
+# 🌐 Hariom - Personal Developer Portfolio
+
+Welcome to my personal developer portfolio repository! This website showcases my background, technical projects, skills, and academic journey as a BCA student.
 
 ---
 
@@ -33,6 +40,10 @@ Hariom-Professional-Portfolio/
 ├── css/
 │   └── style.css     # Styling and layout
 ├── js/
-│   └── script.js    # Interactive scripts
+│   └── script.js     # Interactive scripts
 ├── assets/           # Project icons and images
 └── README.md         # Documentation
+```
+
+**Hariom Builds**  
+*Code • Create • Automate*
