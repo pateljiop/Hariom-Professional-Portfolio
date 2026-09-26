@@ -433,30 +433,47 @@ body {
     overflow-x: hidden;
 }
 
-.card,
+.container,
 .grid,
+.card,
 .tags,
-.project-actions {
+.tag,
+.project-actions,
+.project-actions .btn {
     min-width: 0;
 }
 
+.grid > .card {
+    width: 100%;
+    max-width: 100%;
+}
+
 .tags {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.45rem;
+    margin: 1rem 0;
+    overflow: hidden;
 }
 
 .tag {
+    flex: 0 1 auto;
     max-width: 100%;
+    white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
 }
 
 .project-actions {
     width: 100%;
+    max-width: 100%;
 }
 
 .project-actions .btn {
-    min-width: 0;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -473,36 +490,39 @@ body {
 
     .grid {
         width: 100%;
+        max-width: 100%;
         grid-template-columns: minmax(0, 1fr);
         gap: 1rem;
     }
 
-    .card {
+    .grid > .card {
         width: 100%;
         max-width: 100%;
+        min-width: 0;
         padding: 1.25rem;
         overflow: hidden;
     }
 
-    .card h3 {
-        font-size: 1.25rem;
-        line-height: 1.35;
-        overflow-wrap: anywhere;
-    }
-
+    .card h3,
     .card p {
+        max-width: 100%;
         overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .tags {
         width: 100%;
-        gap: 0.45rem;
+        max-width: 100%;
     }
 
     .tag {
-        flex: 0 0 auto;
+        flex: 0 1 auto;
+        max-width: 100%;
         font-size: 0.78rem;
         padding: 0.3rem 0.55rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .project-actions {
@@ -513,16 +533,21 @@ body {
 
     .project-actions .btn {
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
         text-align: center;
         padding: 0.75rem 0.55rem;
         white-space: normal;
+        overflow-wrap: anywhere;
     }
 
-    /* Standalone Source Code buttons */
     .card > .btn.btn-secondary {
         width: 100%;
+        max-width: 100%;
         text-align: center;
         margin-top: 0.25rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .hero-btns {
@@ -533,6 +558,7 @@ body {
 
     .hero-btns .btn {
         width: 100%;
+        max-width: 100%;
         text-align: center;
     }
 
@@ -542,11 +568,13 @@ body {
 
     .skills-container {
         width: 100%;
+        max-width: 100%;
     }
 
     .skill-pill {
         max-width: 100%;
         overflow-wrap: anywhere;
+        word-break: break-word;
     }
 }
 
@@ -563,7 +591,7 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .card {
+    .grid > .card {
         padding: 1rem;
     }
 
