@@ -306,8 +306,15 @@ section { padding: 3.5rem 0; }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* Mobile-first: never allow project cards to squeeze side-by-side */
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
+}
+
+@media (min-width: 769px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
 }
 
 .card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
