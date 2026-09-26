@@ -606,3 +606,321 @@ body {
         font-size: 0.74rem;
     }
 }
+
+
+/* ===== FINAL RESPONSIVE SYSTEM ===== */
+/* Prevent every section from creating horizontal overflow */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container,
+section,
+.grid,
+.card,
+.tags,
+.project-actions,
+.hero-banner-card,
+.hero-text-content,
+.hero-graphic-container {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* DESKTOP / LAPTOP: 3 project cards */
+@media (min-width: 1100px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        min-width: 0;
+    }
+
+    .tags {
+        flex-wrap: wrap;
+    }
+
+    .project-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/* TABLET: 2 project cards */
+@media (min-width: 769px) and (max-width: 1099px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .card {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        padding: 1.25rem;
+    }
+
+    .card h3,
+    .card p {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .tags {
+        width: 100%;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    .tag {
+        flex: 0 1 auto;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .project-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+    }
+
+    .project-actions .btn {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: 0.7rem 0.5rem;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* Avoid nav links colliding on smaller tablets */
+    nav {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* SMALL TABLET / LARGE PHONE */
+@media (min-width: 769px) and (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-banner-card {
+        gap: 1.25rem;
+        padding: 2rem;
+    }
+
+    .banner-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* MOBILE: 1 full-width project card */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+        padding: 2.25rem 0;
+    }
+
+    .grid {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .grid > .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        padding: 1.25rem;
+    }
+
+    .card h3,
+    .card p {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .tags {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        overflow: hidden;
+    }
+
+    .tag {
+        flex: 0 1 auto;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        font-size: 0.78rem;
+    }
+
+    .project-actions {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    .project-actions .btn,
+    .card > .btn.btn-secondary {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-banner-card {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: column-reverse;
+        padding: 1.5rem;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    .hero-text-content,
+    .hero-graphic-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .banner-avatar {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.6rem, 8vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-btns {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .skills-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .skill-pill {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .slider-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .slide img {
+        height: auto;
+        min-height: 220px;
+        max-height: 380px;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+    }
+
+    .contact-card p,
+    .contact-card a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 480px) {
+    nav {
+        padding: 0.9rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .grid {
+        gap: 0.9rem;
+    }
+
+    .grid > .card {
+        padding: 1rem;
+    }
+
+    .project-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .tag {
+        font-size: 0.74rem;
+        padding: 0.28rem 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .contact-card {
+        padding: 1.25rem;
+    }
+}
