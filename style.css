@@ -424,3 +424,150 @@ footer {
     flex: 1;
     min-width: 120px;
 }
+
+
+/* ===== MOBILE PROJECT LAYOUT FIX ===== */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.card,
+.grid,
+.tags,
+.project-actions {
+    min-width: 0;
+}
+
+.tags {
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.project-actions {
+    width: 100%;
+}
+
+.project-actions .btn {
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    section {
+        padding: 2.25rem 0;
+    }
+
+    .grid {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.25rem;
+        overflow: hidden;
+    }
+
+    .card h3 {
+        font-size: 1.25rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .card p {
+        overflow-wrap: anywhere;
+    }
+
+    .tags {
+        width: 100%;
+        gap: 0.45rem;
+    }
+
+    .tag {
+        flex: 0 0 auto;
+        font-size: 0.78rem;
+        padding: 0.3rem 0.55rem;
+    }
+
+    .project-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    .project-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0.55rem;
+        white-space: normal;
+    }
+
+    /* Standalone Source Code buttons */
+    .card > .btn.btn-secondary {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.25rem;
+    }
+
+    .hero-btns {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-btn-group {
+        justify-content: center;
+    }
+
+    .skills-container {
+        width: 100%;
+    }
+
+    .skill-pill {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 420px) {
+    nav {
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .project-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .tag {
+        font-size: 0.74rem;
+    }
+}
