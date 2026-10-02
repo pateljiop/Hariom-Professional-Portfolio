@@ -143,3 +143,12 @@ document.querySelectorAll('[data-tilt],.hero-banner-card,.card').forEach(el=>{
 })();
 
 document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='translateY('+(card.matches(':nth-child(even)')?35:0)+'px) rotateX('+(-y*4)+'deg) rotateY('+(x*6)+'deg)'});card.addEventListener('pointerleave',()=>card.style.transform=innerWidth>=901&&card.matches(':nth-child(even)')?'translateY(35px)':'' )});
+/* ===== SCROLL JOURNEY HUD ===== */
+(function(){
+ const hud=document.getElementById('hud-section'),bar=document.getElementById('hud-progress'),orb=document.getElementById('cursor-orb');
+ const sections=[...document.querySelectorAll('main section[id]')];
+ const names={about:'HOME',code:'CODE',setup:'WORKSPACE',updates:'LIVE FEED',skills:'SKILLS',projects:'PROJECTS',contact:'CONTACT'};
+ function update(){const max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;if(bar)bar.style.height=(p*100)+'%';let active=sections[0];sections.forEach(s=>{if(scrollY+innerHeight*.35>=s.offsetTop)active=s});if(hud)hud.textContent=names[active?.id]||active?.id?.toUpperCase()||'HOME'}
+ addEventListener('scroll',update,{passive:true});update();
+ if(orb&&innerWidth>768){let x=-100,y=-100,tx=x,ty=y;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;orb.style.opacity='.7'});function move(){x+=(tx-x)*.12;y+=(ty-y)*.12;orb.style.left=x+'px';orb.style.top=y+'px';requestAnimationFrame(move)}move();addEventListener('pointerleave',()=>orb.style.opacity='0')}
+})();
