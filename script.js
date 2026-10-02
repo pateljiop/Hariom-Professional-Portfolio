@@ -160,6 +160,8 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
   const form=document.getElementById('ai-form');
   const input=document.getElementById('ai-input');
   const messages=document.getElementById('ai-messages');
+  const companion=document.getElementById('ai-companion');
+  const pandaStatus=document.getElementById('panda-status');
   if(!launcher||!panel||!form||!input||!messages)return;
 
   const history=[];
@@ -182,8 +184,15 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
     messages.scrollTop=messages.scrollHeight;
     return el;
   }
+  function setPanda(state){
+    if(!companion)return;
+    companion.classList.remove('thinking','responding');
+    if(state)companion.classList.add(state);
+    if(pandaStatus)pandaStatus.textContent=state==='thinking'?'THINKING':state==='responding'?'ONLINE':'READY';
+  }
   function setBusy(state){
     busy=state;
+    setPanda(state?'thinking':'ready');
     input.disabled=state;
     form.querySelector('button').disabled=state;
   }
@@ -202,6 +211,8 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
       const answer=(data.reply||'').trim();
       if(!answer)throw new Error('Empty AI response');
       addMessage(answer,'bot');
+      setPanda('responding');
+      setTimeout(()=>setPanda('ready'),900);
       history.push({role:'user',text:question},{role:'model',text:answer});
       localStorage.setItem('hariom_ai_history',JSON.stringify(history.slice(-20)));
     }catch(error){
@@ -224,6 +235,7 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
     });
   }catch(_){}
 
+  if(companion){companion.setAttribute('aria-hidden','false');}
   launcher.addEventListener('click',show);
   close.addEventListener('click',hide);
   document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
