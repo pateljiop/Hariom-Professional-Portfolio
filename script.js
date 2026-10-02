@@ -309,3 +309,17 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
     });
   });
 })();
+
+
+/* ===== WORKSPACE V3 INTERACTION ENHANCEMENTS ===== */
+(function(){
+ const cards=document.querySelectorAll('.build-card,.terminal-window,.signal-card,.feed-console,.topic-orbit');
+ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ cards.forEach(card=>{card.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='perspective(1100px) rotateX('+(-y*2.2)+'deg) rotateY('+(x*2.8)+'deg) translateZ(3px)'});card.addEventListener('pointerleave',()=>card.style.transform='');});
+ const hero=document.querySelector('.hero-stage');
+ if(hero){hero.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hero.querySelectorAll('.terminal-float').forEach((el,i)=>{const d=(i+1)*4;el.style.marginLeft=(x*d)+'px';el.style.marginTop=(y*d)+'px'});});hero.addEventListener('pointerleave',()=>hero.querySelectorAll('.terminal-float').forEach(el=>{el.style.marginLeft='';el.style.marginTop=''}));}
+})();
+(function(){
+ const feed=document.getElementById('daily-feed-content'); if(!feed)return;
+ const stamp=document.createElement('div');stamp.className='feed-runtime';stamp.style.cssText="margin-top:18px;padding-top:14px;border-top:1px solid #ffffff0b;font:8px 'Fira Code';color:#52738c;letter-spacing:1px";stamp.textContent='WORKSPACE STATUS · CLIENT READY';feed.appendChild(stamp);
+})();
