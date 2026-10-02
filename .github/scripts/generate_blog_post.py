@@ -162,7 +162,7 @@ path.write_text(article, encoding="utf-8")
 index_path = BLOG / "index.html"
 index_html = index_path.read_text(encoding="utf-8")
 card = f'<article class="post-card"><time>{date.upper()}</time><span class="post-tag">{slot.upper()} · DEVELOPER LOG</span><h2>{esc(data["title"])}</h2><p>{esc(data["description"])}</p><a href="./{filename}">Read note ↗</a></article>'
-grid_match = re.search(r'(<div class="blog-grid">)(.*?)(</div>)', index_html, re.S)
+grid_match = re.search(r'(<main class="blog-grid">)', index_html)
 if grid_match and filename not in index_html:
     index_html = index_html[:grid_match.end(1)] + card + index_html[grid_match.end(1):]
     index_path.write_text(index_html, encoding="utf-8")
