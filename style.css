@@ -1002,3 +1002,18 @@ body.intro-active{overflow:hidden}
 @keyframes introGrid{to{transform:perspective(600px) rotateX(62deg) translateY(23%) translateX(-2%)}}@keyframes introCore{from{opacity:0;transform:scale(.35) rotate(-25deg)}to{opacity:1;transform:scale(1) rotate(0)}}@keyframes introOrbit{to{transform:rotateX(67deg) rotateZ(345deg)}}@keyframes introCopy{from{opacity:0;transform:translateY(20px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}@keyframes introButton{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:600px){.intro-copy{top:53%;padding:0 20px}.intro-copy h1{letter-spacing:-2px}.intro-copy p{font-size:8px;letter-spacing:1.5px}.intro-copy small{font-size:10px}.intro-terminal{left:15px;top:18px}.intro-enter{left:50%;right:auto;transform:translateX(-50%);bottom:24px;white-space:nowrap}.intro-enter:hover{transform:translateX(-50%) translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){.intro-screen *{animation:none!important}}
+
+/* ===== PANDA INTRO MATERIALIZATION ===== */
+.intro-panda{position:absolute;width:118px;height:128px;opacity:0;transform:translateY(22px) scale(.35);filter:blur(8px);transition:opacity .8s ease,transform 1s cubic-bezier(.2,.8,.2,1),filter 1s ease;pointer-events:none}
+.intro-screen.panda-live .intro-orb{transform:scale(.72);opacity:.22;filter:blur(2px)}
+.intro-screen.panda-live .intro-panda{opacity:1;transform:translateY(0) scale(1);filter:none}
+.intro-panda-aura{position:absolute;inset:5px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.22),transparent 65%);filter:blur(12px);animation:introPandaAura 1.5s ease-in-out infinite}
+.intro-panda-ear{position:absolute;top:18px;width:34px;height:34px;border-radius:50%;background:#08131f;border:1px solid rgba(56,189,248,.3);z-index:2}.intro-panda-ear.left{left:16px}.intro-panda-ear.right{right:16px}
+.intro-panda-head{position:absolute;left:16px;top:28px;width:86px;height:72px;border-radius:45% 45% 43% 43%;background:linear-gradient(145deg,#f5fbff,#b9cad5 70%,#7b8f9e);box-shadow:0 0 24px rgba(56,189,248,.22);z-index:3}
+.intro-panda-head i{position:absolute;top:20px;width:25px;height:29px;border-radius:50%;background:#101923;transform:rotate(18deg)}.intro-panda-head i.left{left:12px}.intro-panda-head i.right{right:12px;transform:rotate(-18deg)}
+.intro-panda-head i:after{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:#d9f8ff;top:8px;left:8px;box-shadow:0 0 10px #38bdf8}
+.intro-panda-head b{position:absolute;left:39px;top:43px;width:9px;height:7px;border-radius:50%;background:#101923}.intro-panda-head span{position:absolute;left:42px;top:50px;width:3px;height:7px;border-left:1px solid #101923;border-bottom:1px solid #101923;transform:rotate(-45deg)}
+.intro-panda-body{position:absolute;left:34px;top:91px;width:50px;height:34px;border-radius:50% 50% 35% 35%;background:#091522;border:1px solid rgba(56,189,248,.25);z-index:2}
+.intro-panda small{position:absolute;top:132px;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 7px 'Fira Code';letter-spacing:1.5px;color:#64d7ff}
+@keyframes introPandaAura{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.08);opacity:1}}
+@media(prefers-reduced-motion:reduce){.intro-panda{transition:none}.intro-panda-aura{animation:none}}
