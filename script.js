@@ -6,7 +6,15 @@
  document.body.classList.add('intro-active');
  const states=['INITIALIZING','LOADING 3D WORKSPACE','ACTIVATING HARIOM AI','WELCOME, VISITOR']; let i=0;
  const timer=setInterval(()=>{i++;if(status)status.textContent=states[Math.min(i,states.length-1)];if(i>=states.length-1)clearInterval(timer)},650);
- function enterWorkspace(){screen.classList.add('done');document.body.classList.remove('intro-active');clearInterval(timer);setTimeout(()=>screen.remove(),1000)}
+ function enterWorkspace(){
+  if('speechSynthesis' in window){
+    window.speechSynthesis.cancel();
+    const introVoice=new SpeechSynthesisUtterance('Welcome to Hariom Patel’s digital workspace. Hariom is a BCA student and Python developer who builds practical software, automation, web experiences and AI workflows. Explore his projects and meet Hariom AI.');
+    introVoice.rate=.96; introVoice.pitch=1.02; introVoice.volume=.9;
+    window.speechSynthesis.speak(introVoice);
+  }
+  screen.classList.add('done');document.body.classList.remove('intro-active');clearInterval(timer);setTimeout(()=>screen.remove(),1000)
+}
  enter&&enter.addEventListener('click',enterWorkspace);
  setTimeout(enterWorkspace,5200);
 })();
