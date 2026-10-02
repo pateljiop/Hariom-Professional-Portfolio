@@ -1,4 +1,12 @@
 
+/* ===== PANDA CINEMATIC INTRO SEQUENCE ===== */
+(function(){
+ const intro=document.getElementById('intro-screen'),panda=document.getElementById('intro-panda'),status=document.getElementById('intro-status');
+ if(!intro||!panda)return;
+ const reveal=()=>{intro.classList.add('panda-live');if(status)status.textContent='HARIOM AI ONLINE';};
+ setTimeout(reveal,1450);
+})();
+
 /* ===== CINEMATIC INTRO ===== */
 (function(){
  const screen=document.getElementById('intro-screen'),enter=document.getElementById('intro-enter'),status=document.getElementById('intro-status');
