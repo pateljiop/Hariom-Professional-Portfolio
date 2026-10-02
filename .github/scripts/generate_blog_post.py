@@ -139,6 +139,8 @@ def render_sections(sections):
     return "".join(out)
 
 base = "https://pateljiop.github.io/Hariom-Professional-Portfolio/blog"
+# Retention rule: published posts are append-only. This job never deletes, overwrites,
+# or rotates older articles; every successful publication gets permanent language-specific URLs.
 versions = {
     "hinglish": ("hi-Latn", "hinglish"),
     "en": ("en", "english"),
@@ -151,7 +153,7 @@ for key, (lang, label) in versions.items():
     filename = f"{date}-{slot}-{slug}-{key}.html"
     path = BLOG / filename
     if path.exists():
-        print(f"Already exists: {filename}")
+        print(f"Already exists (preserving existing article): {filename}")
         continue
 
     canonical = f"{base}/{filename}"
