@@ -128,3 +128,16 @@ document.querySelectorAll('[data-tilt],.hero-banner-card,.card').forEach(el=>{
   el.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateX('+(-y*3)+'deg) rotateY('+(x*4)+'deg) translateZ(5px)'});
   el.addEventListener('pointerleave',()=>el.style.transform='');
 });
+
+/* Workspace parallax: the 3D hero follows pointer movement without hijacking scroll. */
+(function(){
+ const root=document.querySelector('.hero-graphic-container');
+ if(!root||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const targets=root.querySelectorAll('.hero-avatar-shell,.floating-screen,.hero-orb,.workspace-floor');
+ root.addEventListener('pointermove',e=>{
+   if(innerWidth<900)return;
+   const r=root.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+   targets.forEach((el,i)=>{const d=(i+1)*1.8;el.style.transform='translate3d('+x*d+'px,'+y*d+'px,0) rotateY('+x*(i%2? -10:7)+'deg) rotateX('+(-y*5)+'deg)'});
+ });
+ root.addEventListener('pointerleave',()=>targets.forEach(el=>el.style.transform=''));
+})();
