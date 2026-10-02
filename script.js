@@ -162,10 +162,21 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
   const messages=document.getElementById('ai-messages');
   const companion=document.getElementById('ai-companion');
   const pandaStatus=document.getElementById('panda-status');
+  const voiceButton=document.getElementById('ai-voice');
   if(!launcher||!panel||!form||!input||!messages)return;
 
   const history=[];
   let busy=false;
+  let voiceEnabled=false;
+  function speak(text){
+    if(!voiceEnabled||!('speechSynthesis' in window))return;
+    window.speechSynthesis.cancel();
+    const utterance=new SpeechSynthesisUtterance(text);
+    utterance.rate=.98;
+    utterance.pitch=1.02;
+    utterance.volume=.9;
+    window.speechSynthesis.speak(utterance);
+  }
 
   function show(){
     panel.classList.add('open');
@@ -211,6 +222,7 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
       const answer=(data.reply||'').trim();
       if(!answer)throw new Error('Empty AI response');
       addMessage(answer,'bot');
+      speak(answer);
       setPanda('responding');
       setTimeout(()=>setPanda('ready'),900);
       history.push({role:'user',text:question},{role:'model',text:answer});
@@ -237,8 +249,18 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
 
   if(companion){companion.setAttribute('aria-hidden','false');}
   launcher.addEventListener('click',show);
+  if(voiceButton){
+    if(!('speechSynthesis' in window))voiceButton.disabled=true;
+    voiceButton.addEventListener('click',()=>{
+      voiceEnabled=!voiceEnabled;
+      voiceButton.textContent=voiceEnabled?'🔊':'🔇';
+      voiceButton.setAttribute('aria-label',voiceEnabled?'Disable voice replies':'Enable voice replies');
+      if(!voiceEnabled&&'speechSynthesis' in window)window.speechSynthesis.cancel();
+    });
+  }
   close.addEventListener('click',hide);
   document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+  window.addEventListener('beforeunload',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel()});
 
   form.addEventListener('submit',async e=>{
     e.preventDefault();
