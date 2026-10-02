@@ -924,3 +924,13 @@ section,
         padding: 1.25rem;
     }
 }
+
+/* ===== 3D PORTFOLIO LAYER ===== */
+body{overflow-x:hidden;background:radial-gradient(circle at 72% 18%,rgba(56,189,248,.08),transparent 28%),#030712}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.three-label{position:fixed;left:22px;bottom:18px;z-index:5;font:600 10px 'Fira Code',monospace;letter-spacing:1.5px;color:#6d86a4;opacity:.8}
+.three-label span{color:#38bdf8;margin-left:8px}
+.hero-banner-card,.card,.contact-card,.code-editor-card,.slider-container{transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s ease}
+.hero-banner-card:hover,.card:hover{box-shadow:0 25px 70px rgba(0,0,0,.42),0 0 35px rgba(56,189,248,.07)}
+.hero-banner-card:after{content:'';position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(120deg,transparent 25%,rgba(56,189,248,.12),transparent 60%);transform:translateZ(-1px);pointer-events:none}
+@media(max-width:768px){.three-label{display:none}}
