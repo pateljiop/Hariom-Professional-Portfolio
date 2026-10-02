@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hariom Builds Knowledge Base | Code · Create · Automate</title>
+<meta name="description" content="Hariom Builds developer knowledge base covering Python, AI, automation, web development, APIs and developer tools.">
+<link rel="canonical" href="https://pateljiop.github.io/Hariom-Professional-Portfolio/wiki/">
+<meta property="og:type" content="website"><meta property="og:title" content="Hariom Builds Knowledge Base">
+<meta property="og:description" content="A living developer knowledge base by Hariom Patel.">
+<link rel="stylesheet" href="../style.css">
+<style>
+.kb{max-width:1180px;margin:auto;padding:80px 22px 90px}.kb-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px}.kb-brand{font-weight:800;letter-spacing:.5px;color:#e5f5ff;text-decoration:none}.kb-brand span{color:#5ed5ff}.kb-nav a{color:#8fa5bd;text-decoration:none;font:600 10px 'Fira Code';letter-spacing:1px}.kb-hero{max-width:850px}.eyebrow{font:9px 'Fira Code';letter-spacing:2px;color:#4e89b4}.kb h1{font-size:clamp(44px,8vw,92px);line-height:.9;margin:16px 0}.kb h1 em{font-style:normal;color:#5ed5ff}.kb-hero p{color:#91a8bc;line-height:1.8;max-width:760px}.kb-search{margin:38px 0 55px;display:flex;gap:10px}.kb-search input{width:100%;padding:18px 20px;border:1px solid rgba(94,213,255,.18);border-radius:16px;background:rgba(4,12,23,.82);color:#e5f5ff;outline:none}.topics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.topic{display:block;padding:25px;border:1px solid rgba(56,189,248,.14);border-radius:20px;background:rgba(5,15,29,.72);text-decoration:none;transition:.25s}.topic:hover{transform:translateY(-4px);border-color:rgba(94,213,255,.42)}.topic b{color:#e5f5ff;font-size:18px}.topic p{color:#8299ad;font-size:12px;line-height:1.7}.topic small{color:#4e89b4;font:9px 'Fira Code';letter-spacing:1px}.archive{margin-top:60px;padding-top:30px;border-top:1px solid #ffffff10}.archive h2{color:#e5f5ff}.archive a{color:#5ed5ff}.empty{display:none;color:#8299ad;padding:20px 0}@media(max-width:800px){.topics{grid-template-columns:1fr 1fr}}@media(max-width:520px){.topics{grid-template-columns:1fr}.kb{padding-top:55px}}
+</style></head><body><main class="kb">
+<nav class="kb-nav"><a class="kb-brand" href="../">HARIOM <span>BUILDS</span></a><a href="../blog/">DEVELOPER NOTES ↗</a></nav>
+<header class="kb-hero"><span class="eyebrow">CODE · CREATE · AUTOMATE</span><h1>Knowledge<br><em>Base.</em></h1><p>A living developer encyclopedia by Hariom Patel. Practical explanations, guides and notes on the things developers actually search, build and debug. Old pages stay archived.</p></header>
+<div class="kb-search"><input id="wiki-search" type="search" placeholder="Search Python, AI, APIs, automation..." aria-label="Search knowledge base"></div>
+<section class="topics" id="topics">
+<a class="topic" href="python/"><small>TOPIC 01</small><br><b>Python</b><p>Programming, scripting, packages, errors and practical patterns.</p></a>
+<a class="topic" href="artificial-intelligence/"><small>TOPIC 02</small><br><b>Artificial Intelligence</b><p>AI concepts, models, tools, workflows and developer use cases.</p></a>
+<a class="topic" href="automation/"><small>TOPIC 03</small><br><b>Automation</b><p>Repetitive work, APIs, scripts, agents and workflow design.</p></a>
+<a class="topic" href="web-development/"><small>TOPIC 04</small><br><b>Web Development</b><p>Frontend, backend, deployment, performance and modern web patterns.</p></a>
+<a class="topic" href="apis/"><small>TOPIC 05</small><br><b>APIs</b><p>REST, authentication, requests, integrations and API design.</p></a>
+<a class="topic" href="developer-tools/"><small>TOPIC 06</small><br><b>Developer Tools</b><p>GitHub, terminals, editors, CLI tools and practical developer workflows.</p></a>
+</section>
+<p class="empty" id="empty">No matching topic yet. New topics are added as the knowledge base grows.</p>
+<section class="archive"><h2>Permanent archive</h2><p>Every published developer note remains available as a permanent page. <a href="../blog/">Open all Developer Notes ↗</a></p></section>
+</main><script>
+const input=document.getElementById('wiki-search'),cards=[...document.querySelectorAll('.topic')],empty=document.getElementById('empty');
+input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();let n=0;cards.forEach(c=>{const ok=!q||c.textContent.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)n++});empty.style.display=n?'none':'block'});
+</script></body></html>
