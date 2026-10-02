@@ -153,4 +153,97 @@ document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListen
  if(orb&&innerWidth>768){let x=-100,y=-100,tx=x,ty=y;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;orb.style.opacity='.7'});function move(){x+=(tx-x)*.12;y+=(ty-y)*.12;orb.style.left=x+'px';orb.style.top=y+'px';requestAnimationFrame(move)}move();addEventListener('pointerleave',()=>orb.style.opacity='0')}
 })();
 
-(function(){var l=document.getElementById('ai-launcher'),p=document.getElementById('ai-panel'),cl=document.getElementById('ai-close'),f=document.getElementById('ai-form'),inp=document.getElementById('ai-input'),msgs=document.getElementById('ai-messages');if(!l)return;function show(){p.classList.add('open');p.setAttribute('aria-hidden','false');inp.focus()}function hide(){p.classList.remove('open');p.setAttribute('aria-hidden','true')}function add(t,k){var e=document.createElement('div');e.className='ai-msg '+k;e.textContent=t;msgs.appendChild(e);msgs.scrollTop=msgs.scrollHeight}function reply(q){q=q.toLowerCase();if(q.indexOf('project')>-1)return'Hariom has built an Expense Tracker, Python Personal Assistant, Web Scraper Utility and this self-updating portfolio.';if(q.indexOf('skill')>-1||q.indexOf('tech')>-1)return'Python, JavaScript, HTML/CSS, automation, REST APIs, Pandas, NumPy, Git/GitHub and AI workflows.';if(q.indexOf('contact')>-1||q.indexOf('email')>-1)return'Email: hariompatel.dev@gmail.com. You can also use the Contact section and social links.';if(q.indexOf('github')>-1)return'GitHub: github.com/pateljiop';if(q.indexOf('hariom')>-1||q.indexOf('about')>-1)return'Hariom Patel is a BCA student and Python-focused developer building practical software and automation projects.';return'Try asking about projects, skills, GitHub, Hariom or contact details.'}l.onclick=show;cl.onclick=hide;f.onsubmit=function(e){e.preventDefault();var q=inp.value.trim();if(!q)return;add(q,'user');inp.value='';setTimeout(function(){add(reply(q),'bot')},300)};document.querySelectorAll('.ai-suggestions button').forEach(function(b){b.onclick=function(){inp.value=b.getAttribute('data-q');f.requestSubmit()}})})();
+(function(){
+  const launcher=document.getElementById('ai-launcher');
+  const panel=document.getElementById('ai-panel');
+  const close=document.getElementById('ai-close');
+  const form=document.getElementById('ai-form');
+  const input=document.getElementById('ai-input');
+  const messages=document.getElementById('ai-messages');
+  if(!launcher||!panel||!form||!input||!messages)return;
+
+  const history=[];
+  let busy=false;
+
+  function show(){
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden','false');
+    input.focus();
+  }
+  function hide(){
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden','true');
+  }
+  function addMessage(text,type){
+    const el=document.createElement('div');
+    el.className='ai-msg '+type;
+    el.textContent=text;
+    messages.appendChild(el);
+    messages.scrollTop=messages.scrollHeight;
+    return el;
+  }
+  function setBusy(state){
+    busy=state;
+    input.disabled=state;
+    form.querySelector('button').disabled=state;
+  }
+
+  async function askHariomAI(question){
+    const typing=addMessage('Hariom AI is thinking…','bot ai-thinking');
+    try{
+      const response=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:question,history:history.slice(-10)})
+      });
+      const data=await response.json().catch(()=>({}));
+      typing.remove();
+      if(!response.ok)throw new Error(data.error||'AI unavailable');
+      const answer=(data.reply||'').trim();
+      if(!answer)throw new Error('Empty AI response');
+      addMessage(answer,'bot');
+      history.push({role:'user',text:question},{role:'model',text:answer});
+      localStorage.setItem('hariom_ai_history',JSON.stringify(history.slice(-20)));
+    }catch(error){
+      typing.remove();
+      addMessage('AI backend is not available right now. Try again in a moment, or ask about projects, skills, GitHub or contact details.','bot');
+      console.warn('Hariom AI:',error);
+    }finally{
+      setBusy(false);
+      input.focus();
+    }
+  }
+
+  try{
+    const saved=JSON.parse(localStorage.getItem('hariom_ai_history')||'[]');
+    if(Array.isArray(saved))saved.slice(-10).forEach(item=>{
+      if(item&&typeof item.text==='string'){
+        history.push(item);
+        addMessage(item.text,item.role==='user'?'user':'bot');
+      }
+    });
+  }catch(_){}
+
+  launcher.addEventListener('click',show);
+  close.addEventListener('click',hide);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(busy)return;
+    const question=input.value.trim();
+    if(!question)return;
+    addMessage(question,'user');
+    input.value='';
+    setBusy(true);
+    await askHariomAI(question);
+  });
+
+  document.querySelectorAll('.ai-suggestions button').forEach(button=>{
+    button.addEventListener('click',()=>{
+      if(busy)return;
+      input.value=button.getAttribute('data-q')||'';
+      form.requestSubmit();
+    });
+  });
+})();
