@@ -984,3 +984,6 @@ html{scroll-padding-top:80px}.scroll-hud{position:fixed;right:22px;top:50%;trans
 @keyframes pandaRespond{from{transform:translateY(0) scale(1)}to{transform:translateY(-5px) scale(1.04)}}
 @media(max-width:520px){.ai-companion{right:14px;bottom:68px;transform:scale(.78);transform-origin:bottom right}.ai-launcher{bottom:14px}}
 @media(prefers-reduced-motion:reduce){.ai-companion *{animation:none!important}}
+
+/* ===== AI VOICE CONTROL ===== */
+.ai-head-actions{display:flex;align-items:center;gap:4px}.ai-head-actions button{width:32px;height:32px;display:grid;place-items:center;cursor:pointer;border-radius:9px}.ai-head-actions button:disabled{opacity:.35;cursor:not-allowed}.ai-head-actions #ai-voice{font-size:14px}.ai-head-actions #ai-close{font-size:22px}
