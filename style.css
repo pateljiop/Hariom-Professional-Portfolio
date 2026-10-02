@@ -934,3 +934,23 @@ body{overflow-x:hidden;background:radial-gradient(circle at 72% 18%,rgba(56,189,
 .hero-banner-card:hover,.card:hover{box-shadow:0 25px 70px rgba(0,0,0,.42),0 0 35px rgba(56,189,248,.07)}
 .hero-banner-card:after{content:'';position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(120deg,transparent 25%,rgba(56,189,248,.12),transparent 60%);transform:translateZ(-1px);pointer-events:none}
 @media(max-width:768px){.three-label{display:none}}
+
+/* ===== 3D WORKSPACE HERO ===== */
+.hero-graphic-container{position:relative;height:560px;display:grid;place-items:center;perspective:1200px;transform-style:preserve-3d}
+.scene-label{position:absolute;top:18px;right:10px;font:600 9px 'Fira Code';letter-spacing:2px;color:#5d7897;z-index:4}
+.hero-avatar-shell{position:relative;width:270px;height:340px;z-index:4;transform:rotateY(-7deg) rotateX(3deg);transform-style:preserve-3d;animation:heroFloat 5s ease-in-out infinite}
+.hero-avatar-3d{width:230px;height:290px;object-fit:cover;border-radius:120px 120px 45px 45px;display:block;margin:auto;border:1px solid rgba(92,199,255,.45);box-shadow:0 0 45px rgba(56,189,248,.18),0 35px 80px rgba(0,0,0,.55);filter:saturate(.92) contrast(1.05)}
+.avatar-glow{position:absolute;inset:20px 10px 35px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.14),transparent 62%);z-index:-1;filter:blur(12px)}
+.hero-orb{position:absolute;width:340px;height:340px;border-radius:50%;transform-style:preserve-3d;z-index:2;pointer-events:none}
+.orb-core{position:absolute;inset:90px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7ddcff,rgba(56,189,248,.18) 32%,rgba(5,13,28,.05) 70%);box-shadow:0 0 70px rgba(56,189,248,.16)}
+.orb-ring{position:absolute;inset:0;border:1px solid rgba(56,189,248,.2);border-radius:50%;transform:rotateX(65deg);box-shadow:0 0 30px rgba(56,189,248,.08)}
+.workspace-floor{position:absolute;bottom:42px;width:470px;height:105px;border-radius:50%;background:radial-gradient(ellipse,rgba(56,189,248,.18),rgba(56,189,248,.025) 55%,transparent 72%);transform:rotateX(68deg);filter:blur(1px)}
+.floating-screen{position:absolute;z-index:6;width:145px;height:92px;padding:13px;border:1px solid rgba(95,191,255,.28);border-radius:12px;background:linear-gradient(145deg,rgba(10,27,48,.9),rgba(3,10,21,.78));backdrop-filter:blur(12px);box-shadow:0 20px 45px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.07);display:flex;flex-direction:column;gap:3px;font-family:'Fira Code';transform-style:preserve-3d}
+.floating-screen span{font-size:8px;color:#4e7293}.floating-screen b{font-size:15px;color:#bfeaff}.floating-screen small{font-size:8px;color:#6a89a7;letter-spacing:1px}
+.screen-left{left:0;top:150px;transform:rotateY(18deg) rotateZ(-5deg);animation:screenLeft 6s ease-in-out infinite}
+.screen-right{right:-4px;bottom:145px;transform:rotateY(-18deg) rotateZ(5deg);animation:screenRight 6.5s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0) rotateY(-7deg) rotateX(3deg)}50%{transform:translateY(-12px) rotateY(-4deg) rotateX(4deg)}}
+@keyframes screenLeft{0%,100%{translate:0 0}50%{translate:-7px -12px}}
+@keyframes screenRight{0%,100%{translate:0 0}50%{translate:8px -8px}}
+@media(max-width:900px){.hero-graphic-container{height:470px}.hero-avatar-3d{width:190px;height:245px}.hero-avatar-shell{width:220px;height:290px}.floating-screen{width:125px;height:78px}.screen-left{left:0}.screen-right{right:0}.workspace-floor{width:380px}}
+@media(max-width:600px){.hero-graphic-container{height:400px}.scene-label{top:0}.floating-screen{width:105px;height:66px;padding:9px}.floating-screen b{font-size:11px}.floating-screen small{font-size:7px}.screen-left{left:-6px;top:120px}.screen-right{right:-6px;bottom:105px}.hero-avatar-3d{width:160px;height:205px}.hero-avatar-shell{width:180px;height:245px}.hero-orb{width:270px;height:270px}.orb-core{inset:75px}.workspace-floor{width:300px}}
