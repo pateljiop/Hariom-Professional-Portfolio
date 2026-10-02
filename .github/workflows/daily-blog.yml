@@ -1,0 +1,35 @@
+name: Daily Developer Blog
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+    - cron: "30 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: "gemini-2.5-flash-lite"
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+
+      - name: Generate and publish developer post
+        run: python .github/scripts/generate_blog_post.py
+
+      - name: Commit published post
+        run: |
+          git config user.name "Hariom Patel"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No new post generated."
+            exit 0
+          fi
+          git commit -m "chore: publish developer log"
+          git push
