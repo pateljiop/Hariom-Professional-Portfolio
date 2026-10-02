@@ -158,6 +158,24 @@ article = f"""<!DOCTYPE html>
 """
 path.write_text(article, encoding="utf-8")
 
+# Add the article to the blog index so each generated post is discoverable.
+index_path = BLOG / "index.html"
+index_html = index_path.read_text(encoding="utf-8")
+card = f'<article class="post-card"><time>{date.upper()}</time><span class="post-tag">{slot.upper()} · DEVELOPER LOG</span><h2>{esc(data["title"])}</h2><p>{esc(data["description"])}</p><a href="./{filename}">Read note ↗</a></article>'
+grid_match = re.search(r'(<div class="blog-grid">)(.*?)(</div>)', index_html, re.S)
+if grid_match and filename not in index_html:
+    index_html = index_html[:grid_match.end(1)] + card + index_html[grid_match.end(1):]
+    index_path.write_text(index_html, encoding="utf-8")
+
+# Add the article to the RSS feed.
+feed_path = BLOG / "feed.xml"
+if feed_path.exists():
+    feed = feed_path.read_text(encoding="utf-8")
+    item = f'<item><title>{esc(data["title"])}</title><link>{canonical}</link><guid isPermaLink="true">{canonical}</guid><pubDate>{now.strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate><description>{esc(data["description"])}</description></item>'
+    if canonical not in feed:
+        feed = feed.replace("</channel>", item + "</channel>")
+        feed_path.write_text(feed, encoding="utf-8")
+
 # Add the article to the sitemap.
 sitemap = SITEMAP.read_text(encoding="utf-8")
 entry = f'<url><loc>{canonical}</loc><lastmod>{date}</lastmod></url>'
