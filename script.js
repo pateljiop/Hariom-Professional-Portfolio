@@ -96,3 +96,35 @@ function copyPortfolioLink() {
         console.error("Failed to copy link: ", err);
     });
 }
+
+/* ===== THREE.JS 3D BACKGROUND ===== */
+(function(){
+  if(!window.THREE||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const canvas=document.getElementById('scene'); if(!canvas)return;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+  renderer.setSize(innerWidth,innerHeight);
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);
+  camera.position.z=7;
+  const points=new THREE.BufferGeometry(), count=700, p=new Float32Array(count*3);
+  for(let i=0;i<p.length;i+=3){p[i]=(Math.random()-.5)*18;p[i+1]=(Math.random()-.5)*11;p[i+2]=(Math.random()-.5)*10}
+  points.setAttribute('position',new THREE.BufferAttribute(p,3));
+  const stars=new THREE.Points(points,new THREE.PointsMaterial({color:0x38bdf8,size:.018,transparent:true,opacity:.48}));
+  scene.add(stars);
+  const group=new THREE.Group();
+  const mat=new THREE.MeshBasicMaterial({color:0x38bdf8,wireframe:true,transparent:true,opacity:.13});
+  [1.3,.8,.45].forEach((s,i)=>{const m=new THREE.Mesh(new THREE.IcosahedronGeometry(s,1),mat.clone());m.material.opacity=.12-i*.025;m.position.set(i*2-2,1.2-i*.7,-2-i*.4);group.add(m)});
+  scene.add(group);
+  const line=new THREE.Mesh(new THREE.TorusGeometry(2.5,.008,8,160),new THREE.MeshBasicMaterial({color:0x8b5cf6,transparent:true,opacity:.18}));
+  line.rotation.x=1.05; scene.add(line);
+  let tx=0,ty=0;
+  addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*.35;ty=(e.clientY/innerHeight-.5)*.2});
+  function animate(t){stars.rotation.y=t*.000018;stars.rotation.x=t*.000006;group.rotation.y=t*.00012;group.rotation.x=t*.00005;line.rotation.z=t*.00008;camera.position.x+=(tx-camera.position.x)*.012;camera.position.y+=(-ty-camera.position.y)*.012;renderer.render(scene,camera);requestAnimationFrame(animate)}
+  animate(0);
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+})();
+document.querySelectorAll('[data-tilt],.hero-banner-card,.card').forEach(el=>{
+  el.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateX('+(-y*3)+'deg) rotateY('+(x*4)+'deg) translateZ(5px)'});
+  el.addEventListener('pointerleave',()=>el.style.transform='');
+});
