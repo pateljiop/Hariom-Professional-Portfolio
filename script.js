@@ -141,3 +141,5 @@ document.querySelectorAll('[data-tilt],.hero-banner-card,.card').forEach(el=>{
  });
  root.addEventListener('pointerleave',()=>targets.forEach(el=>el.style.transform=''));
 })();
+
+document.querySelectorAll('.project-3d-card').forEach(card=>{card.addEventListener('pointermove',e=>{if(innerWidth<900)return;const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='translateY('+(card.matches(':nth-child(even)')?35:0)+'px) rotateX('+(-y*4)+'deg) rotateY('+(x*6)+'deg)'});card.addEventListener('pointerleave',()=>card.style.transform=innerWidth>=901&&card.matches(':nth-child(even)')?'translateY(35px)':'' )});
