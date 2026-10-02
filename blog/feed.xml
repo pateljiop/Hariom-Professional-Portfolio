@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Hariom Patel Developer Notes</title>
+    <link>https://pateljiop.github.io/Hariom-Professional-Portfolio/blog/</link>
+    <description>Practical notes on Python, automation, web development and AI workflows by Hariom Patel.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>How I Think About Python Automation Projects</title>
+      <link>https://pateljiop.github.io/Hariom-Professional-Portfolio/blog/python-automation-projects.html</link>
+      <guid isPermaLink="true">https://pateljiop.github.io/Hariom-Professional-Portfolio/blog/python-automation-projects.html</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <description>A practical look at breaking repetitive work into small, testable Python workflows.</description>
+    </item>
+  </channel>
+</rss>
