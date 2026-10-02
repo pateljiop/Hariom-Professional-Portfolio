@@ -1,3 +1,15 @@
+
+/* ===== CINEMATIC INTRO ===== */
+(function(){
+ const screen=document.getElementById('intro-screen'),enter=document.getElementById('intro-enter'),status=document.getElementById('intro-status');
+ if(!screen)return;
+ document.body.classList.add('intro-active');
+ const states=['INITIALIZING','LOADING 3D WORKSPACE','ACTIVATING HARIOM AI','WELCOME, VISITOR']; let i=0;
+ const timer=setInterval(()=>{i++;if(status)status.textContent=states[Math.min(i,states.length-1)];if(i>=states.length-1)clearInterval(timer)},650);
+ function enterWorkspace(){screen.classList.add('done');document.body.classList.remove('intro-active');clearInterval(timer);setTimeout(()=>screen.remove(),1000)}
+ enter&&enter.addEventListener('click',enterWorkspace);
+ setTimeout(enterWorkspace,5200);
+})();
 document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Scroll Reveal Fade-in Observer
